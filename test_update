@@ -1,0 +1,22 @@
+#!/bin/zsh
+
+# Iterate over all files in the current directory
+for file in *; do
+  # Check if it's a regular file
+  if [[ -f "$file" ]]; then
+    # Get the file size in bytes
+    eval $(/usr/bin/stat -s "$file")
+    echo "size: " $st_size
+
+    # Check if the file size exceeds 100 MB (100 * 1024 * 1024 bytes)
+    if (( $st_size > 100 * 1024 * 1024 )); then
+      echo "Error: File '$file' exceeds 100 MB." >&2
+      exit 1
+    fi
+  fi
+done
+
+# git add --all
+# git commit -m "$1"
+# git push -u origin main
+# echo "file <filename> now accessible at \"https://lakeforestparkrd.github.io/<filename>\""
