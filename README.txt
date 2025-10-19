@@ -1,5 +1,8 @@
 This is the Lake Forest Park Road Association newsletter repository.
 
+Run:
+conda activate lfpra
+
 Add file <filename> to this directory.
 Push the file to the repository using the following command:
 ./push_update "Adding <filename>"
